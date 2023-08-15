@@ -427,7 +427,7 @@ obj-y += $(MODULE_NAME).o
 ccflags-y += -DCONFIG_WLAN_DRV_BUILD_IN=1
 else
 $(warning $(MODULE_NAME) is kernel module)
-obj-m += $(MODULE_NAME).o
+obj-y += $(MODULE_NAME).o
 ccflags-y += -DCONFIG_WLAN_DRV_BUILD_IN=0
 endif
 

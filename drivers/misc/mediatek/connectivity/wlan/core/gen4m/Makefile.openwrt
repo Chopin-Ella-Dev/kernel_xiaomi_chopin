@@ -53,7 +53,7 @@ SRC_DIR = ../gen4m
 
 ifeq ($(CONFIG_SUPPORT_OPENWRT),y)
 ccflags-y += -DCONFIG_SUPPORT_OPENWRT
-obj-m += $(MODULE_NAME).o
+obj-y += $(MODULE_NAME).o
 else
 obj-$(CONFIG_GEN4M_SUPPORT) += $(MODULE_NAME).o
 endif
@@ -347,7 +347,7 @@ $(warning $(MODULE_NAME) build-in boot.img)
 obj-y += $(MODULE_NAME).o
 else
 $(warning $(MODULE_NAME) is kernel module)
-obj-m += $(MODULE_NAME).o
+obj-y += $(MODULE_NAME).o
 endif
 
 # ---------------------------------------------------
