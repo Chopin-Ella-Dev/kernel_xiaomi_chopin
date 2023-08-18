@@ -1877,6 +1877,8 @@ static void mtk_output_dsi_enable(struct mtk_dsi *dsi,
 		}
 
 		mi_dsi_display_wakeup_pending_doze_work(dsi);
+	/* set the lane number as 0 to pull down mipi */
+	writel(0, dsi->regs + DSI_TXRX_CTRL);
 
 #ifdef CONFIG_MI_ESD_CHECK
 #if defined(CONFIG_DRM_PANEL_K10A_36_02_0A_DSC_VDO) || defined(CONFIG_DRM_PANEL_K10A_42_02_0B_DSC_VDO)
