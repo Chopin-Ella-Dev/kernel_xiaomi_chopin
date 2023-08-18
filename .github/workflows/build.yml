@@ -30,7 +30,6 @@ jobs:
 
     - name: Prepare environment
       run: |
-        cd kernel_xiaomi_chopin
         git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 toolchain
         mkdir out
         export ARCH=arm64
@@ -41,11 +40,10 @@ jobs:
 
     - name: Build Kernel
       run: |
-        cd kernel_xiaomi_chopin
         make -j$(nproc) O=out 2>&1 | tee kernel.log
 
     - name: Upload Kernel Artifact
       uses: actions/upload-artifact@v2
       with:
         name: kernel-artifact
-        path: kernel_xiaomi_chopin/out/
+        path: out/
